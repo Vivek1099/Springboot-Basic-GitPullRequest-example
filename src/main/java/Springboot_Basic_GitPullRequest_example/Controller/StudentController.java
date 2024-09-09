@@ -19,13 +19,6 @@ public class StudentController
 	@Autowired
 	StudentRepository srepo;
 	
-	
-	
-	@RequestMapping("/test")
-	public String test()
-	{
-		return "Hello Developers";
-	}
 	@GetMapping("/all")
 	public Student allData()
 	{
