@@ -1,5 +1,6 @@
 package Springboot_Basic_GitPullRequest_example.Controller;
 
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,6 @@ public class StudentController
 	{
 		Student s=srepo.findById(id).get();
 		srepo.update(s);
-		return "Data is updated";
-	}
 }
+}
+
