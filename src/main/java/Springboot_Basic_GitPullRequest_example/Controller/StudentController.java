@@ -1,8 +1,6 @@
 package Springboot_Basic_GitPullRequest_example.Controller;
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,33 +13,20 @@ import Springboot_Basic_GitPullRequest_example.Entity.Student;
 import Springboot_Basic_GitPullRequest_example.Repository.StudentRepository;
 
 @RestController
-public class StudentController 
-{
+
+public class StudentController {
 	@Autowired
 	StudentRepository srepo;
-	
-	
-	
 	@RequestMapping("/test")
-	public String test()
-	{
-		return "Hello Developers";
+	public String test() {
+		return"test from Roshan";	
 	}
-	@GetMapping("/all")
-	public Student allData()
-	{
-		return srepo.findAll();
-	}
-	@GetMapping("/{id}")
-	public Optional<Student> byId(@PathVariable int id)
-	{
-		return srepo.findById(id);
-	}
-	@PutMapping("/upd/{id}")
-	public String update(@RequestBody Student stu,@PathVariable int id)
-	{
-		Student s=srepo.findById(id).get();
-		srepo.update(s);
+
+@PostMapping("/save")
+public String saveData(@RequestBody Student s)
+{
+	srepo.save(s);
+	return"data is saved into database";
 }
 }
 
