@@ -17,16 +17,26 @@ import Springboot_Basic_GitPullRequest_example.Repository.StudentRepository;
 public class StudentController {
 	@Autowired
 	StudentRepository srepo;
-	@RequestMapping("/test")
-	public String test() {
-		return"test from Roshan";	
+	
+	@RequestMapping("/all")
+	public List<Student> allData()
+	{
+		return srepo.findAll();
 	}
-
-@PostMapping("/save")
-public String saveData(@RequestBody Student s)
-{
-	srepo.save(s);
-	return"data is saved into database";
+	@RequestMapping("/{id}")
+	public Optional<Student> byId(@PathVariable int id)
+	{
+		return srepo.findById(id);
+		
+	}
+	@RequestMapping("/upd/{id}")
+	public String update(@RequestBody Student stu,@PathVariable int id)
+	{
+		Student s=srepo.findById(id).get();
+		srepo.update(s);
+		return "Data is updated";
+	}
+	
 }
 }
 
