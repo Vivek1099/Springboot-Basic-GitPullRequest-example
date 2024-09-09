@@ -1,7 +1,5 @@
 package Springboot_Basic_GitPullRequest_example.Controller;
 
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +13,8 @@ import Springboot_Basic_GitPullRequest_example.Entity.Student;
 import Springboot_Basic_GitPullRequest_example.Repository.StudentRepository;
 
 @RestController
-public class StudentController 
-{
+
+public class StudentController {
 	@Autowired
 	StudentRepository srepo;
 	
@@ -39,5 +37,6 @@ public class StudentController
 		return "Data is updated";
 	}
 	
-	
 }
+}
+
