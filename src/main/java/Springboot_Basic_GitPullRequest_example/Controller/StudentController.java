@@ -1,5 +1,6 @@
 package Springboot_Basic_GitPullRequest_example.Controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +20,24 @@ public class StudentController
 	@Autowired
 	StudentRepository srepo;
 	
-	@GetMapping("/all")
-	public Student allData()
+	@RequestMapping("/all")
+	public List<Student> allData()
 	{
 		return srepo.findAll();
 	}
-	@GetMapping("/{id}")
+	@RequestMapping("/{id}")
 	public Optional<Student> byId(@PathVariable int id)
 	{
 		return srepo.findById(id);
+		
 	}
-	@PutMapping("/upd/{id}")
+	@RequestMapping("/upd/{id}")
 	public String update(@RequestBody Student stu,@PathVariable int id)
 	{
 		Student s=srepo.findById(id).get();
 		srepo.update(s);
 		return "Data is updated";
 	}
+	
+	
 }
