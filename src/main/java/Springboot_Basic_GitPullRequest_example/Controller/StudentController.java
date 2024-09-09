@@ -1,4 +1,14 @@
 package Springboot_Basic_GitPullRequest_example.Controller;
 
-public class StudentController {
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class StudentController
+{
+	@RequestMapping("/test")
+	public String test()
+	{
+		return "this is Prashant's test";
+	}
+	
 }
